@@ -1,5 +1,6 @@
 package com.example.foodsapp.view.home;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,8 +9,10 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.foodsapp.R;
+import com.example.foodsapp.Utils;
 import com.example.foodsapp.adapter.RecyclerViewHomeAdapter;
 import com.example.foodsapp.adapter.ViewPagerHeaderAdapter;
 import com.example.foodsapp.model.Categories;
@@ -36,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
 
         presenter = new HomePresenter(this);
         presenter.getMeals();
+        presenter.getCategories();
     }
 
     @Override
@@ -56,6 +60,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
         viewPagerMeal.setAdapter(headerAdapter);
         viewPagerMeal.setPadding(20,0,150, 0);
         headerAdapter.notifyDataSetChanged();
+
+        headerAdapter.setOnItemClickListener((v, position) -> {
+            Toast.makeText(this, meal.get(position).getStrMeal(), Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
@@ -66,10 +74,15 @@ public class HomeActivity extends AppCompatActivity implements HomeView{
         recyclerViewCategory.setLayoutManager(layoutManager);
         recyclerViewCategory.setNestedScrollingEnabled(true);
         homeAdapter.notifyDataSetChanged();
+
+        homeAdapter.setOnItemListener((view, position) -> {
+            Toast.makeText(this, category.get(position).getStrCategory(), Toast.LENGTH_SHORT).show();
+
+        });
     }
 
     @Override
     public void onErrorLoading(String message) {
-
+        Utils.showDialogMessage(this, "Title", message);
     }
 }

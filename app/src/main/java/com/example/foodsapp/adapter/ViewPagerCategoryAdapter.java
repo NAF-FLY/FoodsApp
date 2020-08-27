@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.foodsapp.model.Categories;
-import com.example.foodsapp.view.home.category.CategoryFragment;
+import com.example.foodsapp.view.category.CategoryFragment;
 
 import java.util.List;
 
@@ -25,11 +25,12 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
-
+        args.putString("EXTRA_DATA_NAME", categories.get(i).getStrCategory());
+        args.putString("EXTRA_DATA_DESC", categories.get(i).getStrCategoryDescription());
+        args.putString("EXTRA_DATA_IMAGE", categories.get(i).getStrCategoryThumb());
         fragment.setArguments(args);
         return fragment;
     }
-
 
     @Override
     public int getCount() {

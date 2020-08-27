@@ -1,4 +1,4 @@
-package com.example.foodsapp.view.home.category;
+package com.example.foodsapp.view.category;
 
 import com.example.foodsapp.model.Meals;
 

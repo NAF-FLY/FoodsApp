@@ -1,4 +1,4 @@
-package com.example.foodsapp.view.home.category;
+package com.example.foodsapp.view.category;
 
 import android.app.AlertDialog;
 import android.os.Bundle;

@@ -20,7 +20,7 @@ public class Categories implements Serializable {
         this.categories = categories;
     }
 
-    public static class Category implements Serializable{
+    public static class Category implements Serializable {
 
         @SerializedName("idCategory")
         @Expose

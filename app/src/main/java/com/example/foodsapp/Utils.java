@@ -8,6 +8,7 @@ import com.example.foodsapp.api.FoodApi;
 import com.example.foodsapp.api.FoodClient;
 
 public class Utils {
+
     public static FoodApi getApi() {
         return FoodClient.getFoodClient().create(FoodApi.class);
     }

@@ -1,6 +1,5 @@
 package com.example.foodsapp.view.home;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,7 +7,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,7 +16,7 @@ import com.example.foodsapp.adapter.RecyclerViewHomeAdapter;
 import com.example.foodsapp.adapter.ViewPagerHeaderAdapter;
 import com.example.foodsapp.model.Categories;
 import com.example.foodsapp.model.Meals;
-import com.example.foodsapp.view.home.category.CategoryActivity;
+import com.example.foodsapp.view.category.CategoryActivity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -26,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements HomeView{
+public class HomeActivity extends AppCompatActivity implements HomeView {
 
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_POSITION = "position";
